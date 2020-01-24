@@ -1,0 +1,16 @@
+.div{
+    display: flex;
+    flex-flow: wrap row;
+
+}
+
+.boxes{
+    color: white;
+    text-align: center;
+    background-color: black;
+    height: 100px;
+    width: 100px;
+    margin: 1%;
+
+
+}
