@@ -39,22 +39,49 @@ document.addEventListener("DOMContentLoaded", function () {
             div.id = (boxesNumber);
             boxesNumber++
         })
-        //this event listener makes it to where when you mouse over the boxes, a number appears. 
+        //this event listener makes it to where when you mouse over the boxes, a number appears. many times
         div.addEventListener('mouseover', function () {
-            let id = document.createTextNode(div.id);
-            div.appendChild(id);
+            div.innerText = div.id
             console.log('shit');
         })
-    });
-    //When a square is clicked, it should change to a random background color (You can randomly choose from a set of colors you predefine if you wish)
-    // let colors = ['red', 'blue', 'green', 'yellow', 'purple', 'grey', 'pink', 'black']
-    // headers.forEach(function (h) {
-    //     h.addEventListener('dblclick', function () {
-    //         let randomNum = Math.floor((Math.random() * 7) + 1);
-    //         let randomColor = colors[randomNum];
-    //         h.style.color = randomColor
-    //     });
+        //this makes it appear only once.
+        div.addEventListener('mouseout', function () {
+            div.innerText = ''
+        })
+   //this is that changed the colors by the click
+       div.addEventListener("click", function () {
+        let colors = ['red', 'blue', 'green', 'yellow', 'purple', 'grey', 'pink', 'black']
+        div.style.backgroundColor = colors[Math.floor((Math.random() * colors.length))];
+    })
+   div.addEventListener("dblclick", function (){
+       if (div.id % 2 === 0){
+           if (document.contains(div.nextSibling)){
+               div.nextSibling.remove()
+            
+           }
+       else {
+        alert("No Squares");
+       }
+   }
+   else {
+       if (document.contains(div.previousSibling)){
+           div.previousSibling.remove()
+       }
+       else{
+           alert('No Squares')
+       }
+   }
+}
+   )
+   
+   
+   
+    })
 
 
+//If the `id` of the square is even:
+//* The square after the clicked square should be removed from the page
+//* If there isn't a square after the clicked square, display an alert indicating so
 
-    // });
+ 
+});
